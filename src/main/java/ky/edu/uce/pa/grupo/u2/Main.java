@@ -1,4 +1,4 @@
-package ec.edu.uce.pa.grupo.u2;
+package ky.edu.uce.pa.grupo.u2;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;

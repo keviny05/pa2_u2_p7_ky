@@ -1,4 +1,4 @@
-package ec.edu.uce.pa.grupo.u2.pedidos.domain.model;
+package ky.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
 public class Pedido {
     private String id;

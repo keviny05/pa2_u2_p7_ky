@@ -1,10 +1,10 @@
-package ec.edu.uce.pa.grupo.u2.pedidos.infraestructure.persistence.repository;
+package ky.edu.uce.pa.grupo.u2.pedidos.infraestructure.persistence.repository;
 
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.repository.PedidoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import ky.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
+import ky.edu.uce.pa.grupo.u2.pedidos.domain.repository.PedidoRepository;
 
 @ApplicationScoped
 public class PedidoRepositoryImpl implements PedidoRepository {

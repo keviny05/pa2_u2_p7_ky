@@ -1,6 +1,6 @@
-package ec.edu.uce.pa.grupo.u2.pedidos.domain.repository;
+package ky.edu.uce.pa.grupo.u2.pedidos.domain.repository;
 
-import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
+import ky.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
 
 public interface PedidoRepository {
 

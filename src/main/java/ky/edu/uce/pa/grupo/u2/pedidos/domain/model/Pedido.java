@@ -1,4 +1,4 @@
-package ec.edu.uce.pa.grupo.u2.pedidos.domain.model;
+package ky.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +18,7 @@ public class Pedido {
     @SequenceGenerator(name = "pedido_seq", sequenceName = "pedido_seq_db", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_seq")
     @Column(name = "pedd_id") // nombre de la columna en la base de datos
-    private String id;
+    private Long id;
 
     @Column(name = "pedd_producto") // nombre de la columna en la base de datos
     private String producto;
@@ -30,11 +30,11 @@ public class Pedido {
     private LocalDateTime fecha;
     // Getters and Setters
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

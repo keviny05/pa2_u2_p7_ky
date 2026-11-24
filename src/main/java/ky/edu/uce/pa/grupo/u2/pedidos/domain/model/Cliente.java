@@ -1,18 +1,40 @@
 package ky.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity // clase administrada por jakarta persistence
+@Table(name = "clientes")
 public class Cliente {
 
-    private String id;
+    @Id
+    @SequenceGenerator(name = "cliente_seq", sequenceName = "cliente_seq_db", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente_seq")
+    @Column(name = "clie_id")
+    private Long id;
+
+    @Column(name = "clie_nombre")
     private String nombre;
+
+    @Column(name = "clie_email")
     private String email;
+
+    @Column(name = "clie_telefono")
     private String telefono;
+
+    @Column(name = "clie_direccion")
     private String direccion;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,4 +69,5 @@ public class Cliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
 }

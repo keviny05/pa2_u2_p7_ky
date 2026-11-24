@@ -1,6 +1,17 @@
 package ky.edu.uce.pa.grupo.u2.pedidos.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
+@Entity // clase administrada por jakarta persistence
+@Table(name = "pagos")
 public class Pago {
 
     public enum Metodo {
@@ -9,17 +20,27 @@ public class Pago {
         EFECTIVO
     }
 
-    private String id;
+    @Id
+    @SequenceGenerator(name = "pago_seq", sequenceName = "pago_seq_db", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pago_seq")
+    @Column(name = "pagg_id")
+    private Long id;
+
+    @Column(name = "pagg_pedido_id")
     private String pedidoId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "pagg_metodo")
     private Metodo metodo;
+
+    @Column(name = "pagg_monto")
     private double monto;
 
-
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,5 +1,7 @@
 package ky.edu.uce.pa.grupo.u2.pedidos.application;
 
+import java.util.Optional;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -17,8 +19,12 @@ public class PedidoService {
         this.pedidoRepoitory.create(pedido);
     }
 
-    public Pedido buscarPorId(Integer id){
+    public Optional<Pedido> buscarPorId(Integer id){
         return this.pedidoRepoitory.read(id);
+    }
+
+    public Optional<Pedido> buscarPorNumero(String numero){
+        return this.pedidoRepoitory.readByNumer(numero);
     }
 
     public void actualizar(Pedido pedido){

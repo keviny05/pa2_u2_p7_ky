@@ -28,6 +28,11 @@ public class Pedido {
 
     @Column(name = "pedd_fecha") // nombre de la columna en la base de datos
     private LocalDateTime fecha;
+
+    @Column(name = "pedd_numero")
+    private String numero;
+
+
     // Getters and Setters
 
     public Long getId() {
@@ -61,5 +66,15 @@ public class Pedido {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    
 
 }

@@ -1,6 +1,7 @@
 package ky.edu.uce.pa.grupo.u2;
 
-import java.time.LocalDateTime;
+
+import java.util.Optional;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
@@ -24,31 +25,22 @@ public class Main implements QuarkusApplication {
     @Override
     public int run(String... args) throws Exception {
         System.out.println("Hello from Quarkus!");
-        
-        //Create
 
-        Pedido pedido = new Pedido();
-        pedido.setProducto("Producto de prueba");
-        pedido.setPrecio(100.0);
-        pedido.setFecha(LocalDateTime.now());
+        Optional<Pedido> pedido = pedidoService.buscarPorId(3);
 
-        this.pedidoService.guardar(pedido);
+        if( pedido.isPresent()){
+            System.out.println("Pedido encontrado: " + pedido);
+        }
 
-        //Read
-        Pedido pedido2 = this.pedidoService.buscarPorId(3);
-        System.out.println("Pedido encontrado: " + pedido2); 
-        
+        //Read by number
+        Optional<Pedido> pedido2 = pedidoService.buscarPorNumero("3");
 
-        //Update
-        System.out.println("Actualizando pedido...");
-        pedido2.setPrecio(150.0);
-        pedido2.setProducto("Producto actualizado");
+        if( pedido.isPresent()){
+            System.out.println("Pedido encontrado por numero: " + pedido2.get());
+        } else{
+            System.out.println("Pedido no encontrado por numero");
+        }
 
-        Pedido pedido3 = this.pedidoService.buscarPorId(1);
-        System.out.println("Pedido actualizado: " + pedido3);
-
-        //Delete
-        this.pedidoService.eliminar(3);
 
         return 0;
 
